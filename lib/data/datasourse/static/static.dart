@@ -17,9 +17,9 @@ List<OnBoardingmodel> onBoardinglist = [
       body:
           "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop ",
       image: AppImageAsset.onBoardingImagethree),
-  OnBoardingmodel(
-      title: "Fast Delivery",
-      body:
-          "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop ",
-      image: AppImageAsset.onBoardingImageFuor),
+//  OnBoardingmodel(
+//      title: "Fast Delivery",
+//      body:
+//          "We Have a 100k Product , Choose \n Your Product From  Our \n E-commerce Shop ",
+//      image: AppImageAsset.onBoardingImageFuor),
 ];

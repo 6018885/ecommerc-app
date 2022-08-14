@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/onboarding_controllar.dart';
+import 'package:ecommerce/core/constant/colore.dart';
 import 'package:ecommerce/view/wedget/onboarding/custombutton.dart';
 import 'package:ecommerce/view/wedget/onboarding/customslider.dart';
 import 'package:ecommerce/view/wedget/onboarding/dotcontroller.dart';
@@ -12,22 +13,23 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
     return Scaffold(
+        backgroundColor: AppColor.background,
         body: SafeArea(
-      child: Column(children: [
-        const Expanded(
-          flex: 3,
-          child: CustomSliderOnBoarding(),
-        ),
-        Expanded(
-            flex: 1,
-            child: Column(
-              children: const [
-                CustomdotConreollerOnBoarding(),
-                Spacer(flex: 1),
-                CustomButtonOnBoarding()
-              ],
-            ))
-      ]),
-    ));
+          child: Column(children: [
+            const Expanded(
+              flex: 4,
+              child: CustomSliderOnBoarding(),
+            ),
+            Expanded(
+                flex: 1,
+                child: Column(
+                  children: const [
+                    CustomdotConreollerOnBoarding(),
+                    Spacer(flex: 1),
+                    CustomButtonOnBoarding()
+                  ],
+                ))
+          ]),
+        ));
   }
 }
