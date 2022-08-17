@@ -66,13 +66,11 @@ class SginUp extends StatelessWidget {
                 iconData: Icons.phone_iphone_outlined,
                 labeltext: "Password",
               ),
-              const Text(
-                "Forget Password",
-                textAlign: TextAlign.end,
-              ),
               CustomButtomAuth(
                 text: "Sgin Up",
-                onPressed: () {},
+                onPressed: () {
+                  controller.signUp();
+                },
               ),
               const SizedBox(
                 height: 10,

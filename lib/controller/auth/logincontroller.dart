@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constant/routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,7 @@ import 'package:get/get.dart';
 abstract class LoginController extends GetxController {
   login();
   goToSignUp();
+  goToForGetPassword();
 }
 
 class LoginControllerImp extends LoginController {
@@ -32,5 +34,10 @@ class LoginControllerImp extends LoginController {
     email.dispose();
     password.dispose();
     super.dispose();
+  }
+
+  @override
+  goToForGetPassword() {
+    Get.toNamed(Approutes.forgetPassword);
   }
 }
