@@ -8,6 +8,8 @@ abstract class ForGetPasswordController extends GetxController {
 }
 
 class ForGetPasswordControllerImp extends ForGetPasswordController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController email;
 
   @override
@@ -15,7 +17,11 @@ class ForGetPasswordControllerImp extends ForGetPasswordController {
 
   @override
   goToVeryfiycode() {
-    Get.offNamed(Approutes.verfiyCode);
+    if (formstate.currentState!.validate()) {
+      Get.offNamed(Approutes.verfiyCode);
+    } else {
+      print("Not Valid");
+    }
   }
 
   @override

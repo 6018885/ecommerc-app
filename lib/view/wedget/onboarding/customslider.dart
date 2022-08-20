@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/onboarding_controllar.dart';
+import 'package:ecommerce/core/constant/colore.dart';
 import 'package:ecommerce/data/datasourse/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,19 +14,24 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
         onPageChanged: (val) {
           controller.onPagechanges(val);
         },
-        itemCount: onBoardinglist.length,
+        itemCount: onBoardingList.length,
         itemBuilder: (context, i) => Column(children: [
               Image.asset(
-                onBoardinglist[i].image!,
+                onBoardingList[i].image!,
                 //width: 250,
-                //height: 230,
-                //fit: BoxFit.fill,
+                height: Get.width / 1.2,
+                fit: BoxFit.fill,
               ),
               const SizedBox(
                 height: 80,
               ),
-              Text(onBoardinglist[i].title!,
-                  style: Theme.of(context).textTheme.headline1),
+              Text(
+                onBoardingList[i].title!,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    color: AppColor.black),
+              ),
               const SizedBox(
                 height: 0,
               ),
@@ -33,9 +39,13 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                   width: double.infinity,
                   alignment: Alignment.center,
                   child: Text(
-                    onBoardinglist[i].body!,
+                    onBoardingList[i].body!,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: const TextStyle(
+                        height: 2,
+                        color: AppColor.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14),
                   )),
             ]));
   }

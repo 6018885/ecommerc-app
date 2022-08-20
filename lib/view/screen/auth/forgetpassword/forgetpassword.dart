@@ -1,6 +1,7 @@
-import 'package:ecommerce/controller/auth/forgetpassword.dart';
+import 'package:ecommerce/controller/auth/forgetpassword_controller.dart';
 
 import 'package:ecommerce/core/constant/colore.dart';
+import 'package:ecommerce/core/function/validator.dart';
 import 'package:ecommerce/view/wedget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/wedget/auth/customtextformauth.dart';
 
@@ -21,7 +22,7 @@ class ForGetPassword extends StatelessWidget {
           centerTitle: true,
           backgroundColor: AppColor.background,
           elevation: 0.0,
-          title: Text('ForgetPassword',
+          title: Text('14'.tr,
               style: Theme.of(context)
                   .textTheme
                   .headline1!
@@ -29,37 +30,43 @@ class ForGetPassword extends StatelessWidget {
         ),
         body: Container(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child: ListView(
-            children: [
-              const CustomTextTitelAuth(
-                text: "Check Email",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const CustomTextBodyAuth(
-                text:
-                    "please Enter Your Email Address To Recive A Verification Code ",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomTextFormAuth(
-                mycontroller: controller.email,
-                hinttext: "Enter Your Email",
-                iconData: Icons.email_outlined,
-                labeltext: "Email",
-              ),
-              CustomButtomAuth(
-                text: "Check",
-                onPressed: () {
-                  controller.goToVeryfiycode();
-                },
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
+          child: Form(
+            key: controller.formstate,
+            child: ListView(
+              children: [
+                CustomTextTitelAuth(
+                  text: "27".tr,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomTextBodyAuth(
+                  text: "29".tr,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomTextFormAuth(
+                  isNumber: false,
+                  valid: (val) {
+                    return validInput(val!, 5, 50, "email");
+                  },
+                  mycontroller: controller.email,
+                  hinttext: "12".tr,
+                  iconData: Icons.email_outlined,
+                  labeltext: "18".tr,
+                ),
+                CustomButtomAuth(
+                  text: "30".tr,
+                  onPressed: () {
+                    controller.goToVeryfiycode();
+                  },
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ));
   }

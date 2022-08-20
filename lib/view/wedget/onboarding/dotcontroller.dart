@@ -14,7 +14,7 @@ class CustomdotConreollerOnBoarding extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ...List.generate(
-                    onBoardinglist.length,
+                    onBoardingList.length,
                     (index) => AnimatedContainer(
                           margin: const EdgeInsets.only(right: 5),
                           duration: const Duration(milliseconds: 900),

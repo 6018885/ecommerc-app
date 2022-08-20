@@ -1,5 +1,7 @@
 import 'package:ecommerce/controller/auth/logincontroller.dart';
 import 'package:ecommerce/core/constant/colore.dart';
+import 'package:ecommerce/core/function/alertexitapp.dart';
+import 'package:ecommerce/core/function/validator.dart';
 import 'package:ecommerce/view/wedget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/wedget/auth/customtextformauth.dart';
 import 'package:ecommerce/view/wedget/auth/customtextsignuoorsignin.dart';
@@ -20,66 +22,87 @@ class Login extends StatelessWidget {
           centerTitle: true,
           backgroundColor: AppColor.background,
           elevation: 0.0,
-          title: Text('Sgin in',
+          title: Text('9'.tr,
               style: Theme.of(context)
                   .textTheme
                   .headline1!
                   .copyWith(color: AppColor.grey)),
         ),
-        body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          child: ListView(
-            children: [
-              const LogoAuth(),
-              const CustomTextTitelAuth(
-                text: "Welcome Back",
+        body: WillPopScope(
+          onWillPop: alertExitApp,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: Form(
+              key: controoler.formstate,
+              child: ListView(
+                children: [
+                  const LogoAuth(),
+                  CustomTextTitelAuth(
+                    text: "10".tr,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextBodyAuth(
+                    text: "11".tr,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextFormAuth(
+                    isNumber: false,
+                    valid: (val) {
+                      return validInput(val!, 5, 50, "email");
+                    },
+                    mycontroller: controoler.email,
+                    hinttext: "12".tr,
+                    iconData: Icons.email_outlined,
+                    labeltext: "18".tr,
+                  ),
+                  GetBuilder<LoginControllerImp>(
+                    builder: (controoler) => CustomTextFormAuth(
+                      obscuerText: controoler.isShowPassword,
+                      onTapIcon: () {
+                        controoler.showPassword();
+                      },
+                      isNumber: false,
+                      valid: (val) {
+                        return validInput(val!, 5, 30, "password");
+                      },
+                      mycontroller: controoler.password,
+                      hinttext: "13".tr,
+                      iconData: Icons.lock_outlined,
+                      labeltext: "19".tr,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: (() {
+                      controoler.goToForGetPassword();
+                    }),
+                    child: Text(
+                      "14".tr,
+                      textAlign: TextAlign.end,
+                    ),
+                  ),
+                  CustomButtomAuth(
+                    text: "15".tr,
+                    onPressed: () {
+                      controoler.login();
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextSignUpOrSignIn(
+                    textone: "16".tr,
+                    texttwo: "17".tr,
+                    onTap: () {
+                      controoler.goToSignUp();
+                    },
+                  )
+                ],
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              const CustomTextBodyAuth(
-                text:
-                    "Sign In With Your Email And Password OR Continue With Social Media",
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomTextFormAuth(
-                mycontroller: controoler.email,
-                hinttext: "Enter Your Email",
-                iconData: Icons.email_outlined,
-                labeltext: "Email",
-              ),
-              CustomTextFormAuth(
-                mycontroller: controoler.password,
-                hinttext: "Enter Your Password",
-                iconData: Icons.lock_outlined,
-                labeltext: "Password",
-              ),
-              InkWell(
-                onTap: (() {
-                  controoler.goToForGetPassword();
-                }),
-                child: const Text(
-                  "Forget Password",
-                  textAlign: TextAlign.end,
-                ),
-              ),
-              CustomButtomAuth(
-                text: "Sgin in",
-                onPressed: () {},
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomTextSignUpOrSignIn(
-                textone: "Don't have an account ?",
-                texttwo: "SignUp",
-                onTap: () {
-                  controoler.goToSignUp();
-                },
-              )
-            ],
+            ),
           ),
         ));
   }

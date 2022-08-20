@@ -8,6 +8,14 @@ abstract class SignUpController extends GetxController {
 }
 
 class SignUpControllerImp extends SignUpController {
+  bool isShowPassword = true;
+
+  showPassword() {
+    isShowPassword = isShowPassword == true ? false : true;
+    update();
+  }
+
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phone;
@@ -15,7 +23,9 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   signUp() {
-    Get.offNamed(Approutes.checkemail);
+    if (formstate.currentState!.validate()) {
+      Get.offNamed(Approutes.verfiycodeSignUp);
+    } else {}
   }
 
   @override

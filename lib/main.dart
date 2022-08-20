@@ -1,3 +1,4 @@
+import 'package:ecommerce/binding.dart';
 import 'package:ecommerce/core/locallization/transation.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
@@ -26,10 +27,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme,
-      home:
-          //  Test(),
-          const Language(),
-      routes: routes,
+
+      initialBinding: MyBinding(),
+      getPages: routes,
+      //routes: routes,
     );
   }
 }
